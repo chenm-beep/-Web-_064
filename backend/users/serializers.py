@@ -30,7 +30,7 @@ class UserCreateSerializer(serializers.ModelSerializer):
 
     def validate(self, attrs):
         if attrs['password'] != attrs['password2']:
-            raise serializers.ValidationError({'password': '两次密码不一致'})
+            raise serializers.ValidationError({'password2': '两次密码不一致'})
         return attrs
 
     def create(self, validated_data):
@@ -46,5 +46,5 @@ class ChangePasswordSerializer(serializers.Serializer):
 
     def validate(self, attrs):
         if attrs['new_password'] != attrs['new_password2']:
-            raise serializers.ValidationError({'new_password': '两次密码不一致'})
+            raise serializers.ValidationError({'new_password2': '两次密码不一致'})
         return attrs
