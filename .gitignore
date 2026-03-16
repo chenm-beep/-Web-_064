@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+*.so
+venv/
+env/
+.env
+
+# Django
+*.pyc
+db.sqlite3
+media/
+staticfiles/
+*.log
+
+# Node.js
+node_modules/
+npm-debug.log*
+
+# Build artifacts
+frontend/dist/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temp files
+*.tmp
+img1_small.png
+img2_small.png
+img3_small.png
