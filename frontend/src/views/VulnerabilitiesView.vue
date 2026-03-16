@@ -71,7 +71,7 @@
           </template>
         </el-table-column>
         <el-table-column label="发现时间" width="110">
-          <template #default="{ row }">{{ row.discovered_at?.slice(0, 10) }}</template>
+          <template #default="{ row }">{{ formatDate(row.discovered_at) }}</template>
         </el-table-column>
         <el-table-column label="操作" width="170" fixed="right">
           <template #default="{ row }">
@@ -137,6 +137,7 @@
 </template>
 
 <script setup>
+import { formatDate } from '@/utils/format'
 import { ref, reactive, onMounted } from 'vue'
 import axios from '@/utils/axios'
 import { ElMessage } from 'element-plus'

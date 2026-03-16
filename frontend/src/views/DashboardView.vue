@@ -68,7 +68,7 @@
             </el-table-column>
             <el-table-column label="时间" width="100">
               <template #default="{ row }">
-                {{ row.discovered_at?.slice(0, 10) }}
+                {{ formatDate(row.discovered_at) }}
               </template>
             </el-table-column>
           </el-table>
@@ -95,7 +95,7 @@
             </el-table-column>
             <el-table-column label="时间" width="100">
               <template #default="{ row }">
-                {{ row.created_at?.slice(0, 10) }}
+                {{ formatDate(row.created_at) }}
               </template>
             </el-table-column>
           </el-table>
@@ -106,6 +106,7 @@
 </template>
 
 <script setup>
+import { formatDate } from '@/utils/format'
 import { ref, reactive, computed, onMounted } from 'vue'
 import axios from '@/utils/axios'
 import { ElMessage } from 'element-plus'

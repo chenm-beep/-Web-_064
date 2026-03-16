@@ -1,9 +1,10 @@
 import axios from 'axios'
 import router from '@/router'
+import { API_TIMEOUT } from '@/utils/format'
 
 const instance = axios.create({
   baseURL: '/',
-  timeout: 30000,
+  timeout: API_TIMEOUT,
 })
 
 instance.interceptors.request.use((config) => {

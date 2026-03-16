@@ -30,7 +30,7 @@
           <template #default="{ row }">{{ row.task_name || row.task }}</template>
         </el-table-column>
         <el-table-column label="扫描时间" width="110">
-          <template #default="{ row }">{{ row.scanned_at?.slice(0, 10) || '—' }}</template>
+          <template #default="{ row }">{{ formatDate(row.scanned_at) }}</template>
         </el-table-column>
         <el-table-column label="漏洞数" width="80">
           <template #default="{ row }">
@@ -83,6 +83,7 @@ function stateLabel(s) {
 async function fetchPortScans() {
   loading.value = true
   try {
+    // page_size uses snake_case to match Django REST framework backend API convention
     const params = { page: page.value, page_size: pageSize.value }
     if (selectedTask.value) params.task = selectedTask.value
     const res = await axios.get('/api/scanner/port-scans/', { params })
